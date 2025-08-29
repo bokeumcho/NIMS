@@ -1,0 +1,28 @@
+31510 6752 6753
+Epoch 1/1 - Training:   0%|          | 0/1969 [00:00<?, ?it/s]Epoch 1/1 - Training:   0%|          | 0/1969 [01:14<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/work/team3/bokeum/main_steps.py", line 143, in <module>
+    pred = model(x, detach_between_steps=True, tf_mode=True, teacher=y, ss_ratio=ss_ratio)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/miniconda3/envs/py312cu121/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/miniconda3/envs/py312cu121/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/bokeum/model/model_recursive.py", line 191, in forward
+    y = self.decoder.rollout(Z_ctx_flat, enc1_seq, self.horizon,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/bokeum/model/model_recursive.py", line 144, in rollout
+    y_block = self.base(z_k_seq, enc1_seq, recent_seq)   # [B, T, C_img, H, W]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/miniconda3/envs/py312cu121/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/miniconda3/envs/py312cu121/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/work/team3/bokeum/model/model_recursive.py", line 76, in forward
+    x = torch.cat([x, e, r], dim=1)     # [B*T, 3*C_enc, Hs, Ws]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 176 but got size 44 for tensor number 2 in the list.

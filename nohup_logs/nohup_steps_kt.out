@@ -1,0 +1,11 @@
+[info] Saved config to runs/exp_kt_6hr/config.json
+25223 5404 5406
+Epoch 1/1 - Training:   0%|          | 0/788 [00:00<?, ?it/s]Epoch 1/1 - Training:   0%|          | 0/788 [05:31<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/work/team3/bokeum/main_steps.py", line 132, in <module>
+    y = pool_hw_only(y) #.contiguous()
+        ^^^^^^^^^^^^^^^
+  File "/home/work/team3/bokeum/model/module.py", line 10, in pool_hw_only
+    x = F.avg_pool2d(x, kernel_size=2, stride=2)  # no dtype change here
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: integer out of range
